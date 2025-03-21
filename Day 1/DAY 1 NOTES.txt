@@ -1,0 +1,27 @@
+Docker is a platform that provides virtual containers on which an application can be deployed independent of the underlying OS of the server. Further the container can be created from a replica called docker image which contains all the dependencies and can run on any OS that has docker engine, with similar results.
+
+
+VIRTUALIZATION:
+Virtualization is the process of sharing hardware resources across several virtually isolated and mutually independent systems. It is achieved by using a hypervisor which acts as a bridge between the Operating System of each of the virtual machines and the underlying hardware.
+Applications in virtual environments run on a host operating system on top of the hypervisor.
+
+
+BASIC DOCKER COMMANDS
+	Display docker images available in our machine
+$ docker images
+	Download docker image.
+$ docker pull <image-name / image-id>
+	Run docker image.
+$ docker run <image-name / image-id>
+	Delete docker image.
+$ docker rmi <image-name / image-id>
+	Display all running docker containers.
+$ docker ps 	
+	Display all running and stopped containers.
+$ docker ps -a
+	Delete docker container.
+$ docker rm <container-id>
+	Delete docker image forcefully.
+$ docker rmi  -f <image-id>
+	Stop Docker container.
+$ docker stop <container-id>
