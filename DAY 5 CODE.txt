@@ -1,0 +1,56 @@
+stage('build to images') {
+steps { script{
+}
+sh 'docker build t nithyasandhu/devops.'
+stage('push to hub') {
+steps {
+script{
+withDockerRegistry(credentialsId: 'Docker_cred', url: 'https://index.docker.io/v1/') { sh 'docker push nithyasandhu/devops'
+stage('build') { steps {
+sh "mvn clean"
+sh "mvn install"
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+stage( 'Deploy App') {
+steps {
+withKubeConfig(caCertificate: '', clusterName: 'minikube', contextName: 'minikube', credential:
+sh 'kubectl apply -f deployment.yml --validate=false'
+pipeline {
+agent any
+stages {
+stage('SCM') { steps {
+}
+}
+git branch: 'main', url: 'https://github.com/nithyasandhu/devops'
+stage('build') {
+steps {
+sh "mvn clean"
+sh "mvn install"
+}
+}
+stage('build to images') {
+steps {
+script{
+Ish 'docker build -t nithyasandhu/devops .'
+}
+}
+}
+stage('push to hub') {
+steps {
+script{
+withDockerRegistry (credentialsId: 'Docker_cred', url: 'https://index.docker.io/v1/') { sh 'docker push nithyasandhu/devops'
+}
+}
+}
+stage('Deploy App') {
+steps {
+

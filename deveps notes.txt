@@ -1,0 +1,20 @@
+A small History of K8S
+  *In 2014 Google open sourced a version of Borg called Kubernetes.
+  *Kubernets was denoted to the cloud Native computer foundation. 
+  *API server-interact with the cluster,Scheduler,Controller,etcd.
+Control plane/master plane
+  *make global decision about the cluster.
+
+
+
+kubectll run <pod-name>--image-<image-name> --port
+*API server-interact with the cluster.
+*Control manager-monitoring the tool.
+*etcd-distributing key value.
+*Scheduler-responsible for assigning workloads.
+*pods-pods are the basic building block of Kubernetes.
+*Replicates-no.of pods replicates are running at the same time.
+*Deployment-A higher level abtraction that manages and updates a set of replica pods.
+  
+
+

@@ -1,0 +1,21 @@
+jenkins ALL=(ALL) NOPASSWD: ALL
+
+sudo systemctl restart ssh.service
+sudo systemctl restart sshd.service
+
+sudo apt update
+sudo apt install openssh-server
+
+sudo systemctl restart ssh
+
+sudo systemctl status ssh
+
+ls /etc/systemd/system/sshd.service or ls /usr/lib/systemd/system/sshd.service
+
+sudo systemctl daemon-reload
+
+sudo systemctl status ssh
+
+sudo systemctl restart ssh.service
+
+cat /home/ubundu/.minikube/ca.crt | base64 -w 0; echo
